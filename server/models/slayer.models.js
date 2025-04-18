@@ -6,7 +6,7 @@ const SlayerSchema = new Schema(
             type: String,
             required: [true, "What shall we call you?"],
             minlength: [3, "Name must be at least 3 characters"],
-            maxlength: [15, "Name must not exceed 15 characters"]
+            maxlength: [25, "Name must not exceed 25 characters"]
         },
 
         email: {
