@@ -48,3 +48,6 @@ export const loginSlayer = async (req, res, next) => {
         res.status(400).json(error)
     }
 }
+
+// To-Do: getAllSlayers, getSlayerById
+//If time permits: editSlayer, if I give them more of a profile view

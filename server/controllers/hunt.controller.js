@@ -25,3 +25,12 @@ export const createHunt = async (req, res, next) => {
         res.status(400).json(error)
     }
 }
+
+//To Do: getAllHunts, getHuntById, updateHunt, deleteHunt
+
+//acceptHunt - sets huntStatus to "accepted", slayerAccepted then
+//receives that slayer's ID. Add Hunt to array of accepted hunts.
+
+//completeHunt - sets huntStatus to "completed", isCompleted to "true",
+// add Slayer ID to slayerCOmpleted, add hunt to array of completedHunts, 
+// add reward into goldEarned.

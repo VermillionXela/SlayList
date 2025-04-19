@@ -1,8 +1,9 @@
 import { Router } from 'express'
-import { loginSlayer, registerSlayer } from '../controllers/slayer.controller.js'
+
 
 const slayerRouter = Router()
 
+//only slayers will be able to see their personal dashboard and accepted hunts page for now
 slayerRouter.route('/register')
     .post(registerSlayer)
 
