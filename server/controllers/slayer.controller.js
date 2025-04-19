@@ -49,5 +49,23 @@ export const loginSlayer = async (req, res, next) => {
     }
 }
 
-// To-Do: getAllSlayers, getSlayerById
+export const getAllSlayers = async (req, res, next) => {
+    try {
+        const slayers = await Slayer.find()
+        res.status(200).json(slayers)
+    } catch (error) {
+        res.status(400).json(error)
+    }
+}
+
+export const getSlayerById = async (req, res, next) => {
+    const { id } = req.params
+    try {
+        const slayer = await Slayer.findById(id)
+        res.status(200).json(slayer)
+    } catch (error) {
+        res.status(400).json(error)
+    }
+}
+
 //If time permits: editSlayer, if I give them more of a profile view
