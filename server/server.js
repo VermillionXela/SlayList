@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import dbConnect from './config/mongoose.config.js'
 import guildRouter from './routes/guild.routes.js'
 import slayerRouter from './routes/slayer.routes.js'
+import huntRouter from './routes/hunt.routes.js'
 
 dotenv.config()
 const PORT = process.env.PORT
@@ -13,6 +14,7 @@ app.use(express.json(), cors())
 
 app.use('/v1/guild', guildRouter)
 app.use('/v1/slayer', slayerRouter)
+app.use('/v1/hunt', huntRouter)
 
 
 dbConnect()
