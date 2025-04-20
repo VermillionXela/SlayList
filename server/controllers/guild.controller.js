@@ -37,6 +37,8 @@ export const loginGuild = async (req, res, next) => {
             return res.status(400).json({ error: "Invalid login" })
         }
 
+        req.session.guild_id = guild._id
+        
         const guildData = guild.toObject()
         delete guildData.password
 

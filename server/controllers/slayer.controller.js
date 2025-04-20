@@ -39,9 +39,10 @@ export const loginSlayer = async (req, res, next) => {
             return res.status(400).json({ error: "Invalid login" })
         }
 
+        req.session.slayer_id = slayer._id
+        
         const slayerData = slayer.toObject()
         delete slayerData.password
-
 
         res.status(200).json(slayerData)
     } catch (error) {
@@ -68,4 +69,6 @@ export const getSlayerById = async (req, res, next) => {
     }
 }
 
+//Need to have a method to get slayers accepted hunts and completed hunts to show on their
+//dashboard using the populate method
 //If time permits: editSlayer, if I give them more of a profile view
