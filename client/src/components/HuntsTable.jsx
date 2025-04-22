@@ -1,0 +1,1 @@
+//Accepted Hunts and Completed Hunts table with conditional rendering 
