@@ -5,19 +5,19 @@ export const registerSlayer = async (req, res, next) => {
     try {
         const { name, email, password, confirmPassword, skills, bio } = req.body
 
-    if (password !== confirmPassword) {
-        return res.status(400).json({ error: "Passwords do not match" })
-    }
+        if (password !== confirmPassword) {
+            return res.status(400).json({ error: "Passwords do not match" })
+        }
 
-    const hashedPassword = await bcrypt.hash(password, 10)
+        const hashedPassword = await bcrypt.hash(password, 10)
 
-    const SLAYER = await Slayer.create({
-        name,
-        email,
-        password: hashedPassword,
-        skills,
-        bio
-    })
+        const SLAYER = await Slayer.create({
+            name,
+            email,
+            password: hashedPassword,
+            skills,
+            bio
+        })
 
         res.status(201).json(SLAYER)
     } catch (error) {
@@ -25,30 +25,33 @@ export const registerSlayer = async (req, res, next) => {
     }
 }
 
-export const loginSlayer = async (req, res, next) => {
+export const loginSlayer = async (req, res) => {
     try {
         const { email, password } = req.body
 
         const slayer = await Slayer.findOne({ email })
-            if (!slayer) {
-            return res.status(400).json({ error: "Invalid login" })
+        if (!slayer) {
+            return res.status(400).json(null)
         }
 
         const isMatch = await bcrypt.compare(password, slayer.password)
-            if (!isMatch) {
-            return res.status(400).json({ error: "Invalid login" })
+        if (!isMatch) {
+            return res.status(400).json(null)
         }
 
         req.session.slayer_id = slayer._id
-        
+
         const slayerData = slayer.toObject()
         delete slayerData.password
 
         res.status(200).json(slayerData)
     } catch (error) {
-        res.status(400).json(error)
+        res.status(400).json(null)
     }
 }
+
+
+
 
 export const getAllSlayers = async (req, res, next) => {
     try {
