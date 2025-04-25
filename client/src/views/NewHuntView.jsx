@@ -66,58 +66,53 @@ export const NewHuntView = () => {
                     <h1 className={styles.header}>What beast troubles you?</h1>
                     <form onSubmit={handleSubmit}>
 
-                        <div className={styles.leftContainer}>
-                            <div className={styles.formInput}>
-                                <label>Monster Name:
-                                    <input
-                                        type='text'
-                                        name='monsterName'
-                                        value={newHunt.monsterName}
-                                        onChange={updateHunt} />
-                                </label>
-                                {errors.monsterName && <p className={styles.errorText}>{errors.monsterName.message}</p>}
-                            </div>
-
-                            <div className={styles.formInput}>
-                                <label>Brief Description:
-                                    <textarea
-                                        name='description'
-                                        value={newHunt.description}
-                                        onChange={updateHunt} />
-                                </label>
-                                {errors.description && <p className={styles.errorText}>{errors.description.message}</p>}
-                            </div>
-
-                            <div className={styles.formInput}>
-                                <label>Gold Reward:
-                                    <input
-                                        type='number'
-                                        name='reward'
-                                        value={newHunt.reward}
-                                        onChange={updateHunt} />
-                                </label>
-                                {errors.reward && <p className={styles.errorText}>{errors.reward.message}</p>}
-                            </div>
+                        <div className={styles.formInput}>
+                            <label>Monster Name:
+                                <input
+                                    type='text'
+                                    name='monsterName'
+                                    value={newHunt.monsterName}
+                                    onChange={updateHunt} />
+                            </label>
+                            {errors.monsterName && <p className={styles.errorText}>{errors.monsterName.message}</p>}
                         </div>
 
-                        <div className={styles.rightContainer}>
-                            <h2>Skills Required (pick 3):</h2>
-                            <div className={styles.skillContainer}>
-
-                                {HUNT_SKILLS.map(({ name, icon }) => (
-                                    <div key={name}
-                                        onClick={() => toggleSkill(name)}>
-                                        <div className={styles.icon}>
-                                            {icon}
-                                        </div>
-                                        <div className={styles.skillName}>
-                                            {name}
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                            {errors.monsterWeaknesses && <p className={styles.errorText}>{errors.monsterWeaknesses.message}</p>}
+                        <div className={styles.formInput}>
+                            <label>Brief Description:
+                                <textarea
+                                    name='description'
+                                    value={newHunt.description}
+                                    onChange={updateHunt} />
+                            </label>
+                            {errors.description && <p className={styles.errorText}>{errors.description.message}</p>}
                         </div>
+
+                        <div className={styles.formInput}>
+                            <label>Gold Reward:
+                                <input
+                                    type='number'
+                                    name='reward'
+                                    value={newHunt.reward}
+                                    onChange={updateHunt} />
+                            </label>
+                            {errors.reward && <p className={styles.errorText}>{errors.reward.message}</p>}
+                        </div>
+
+                        <p>Skills Required (pick 3):</p>
+                        <div className={styles.skillContainer}>
+                            {HUNT_SKILLS.map(({ name, icon }) => (
+                                <div
+                                    key={name}
+                                    className={`${styles.skillOption} ${newHunt.monsterWeaknesses.includes(name) ? styles.selected : ''}`}
+                                    onClick={() => toggleSkill(name)}
+                                >
+                                    <div className={styles.icon}>{icon}</div>
+                                    <div className={styles.skillName}>{name}</div>
+                                </div>
+                            ))}
+                        </div>
+                        {errors.monsterWeaknesses && <p className={styles.errorText}>{errors.monsterWeaknesses.message}</p>}
+
 
                         <button type='submit' className={styles.submitButton}>Post to Hunting Board</button>
                     </form>

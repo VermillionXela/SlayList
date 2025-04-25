@@ -24,11 +24,13 @@ export const SlayerLoginView = () => {
 
         loginSlayer(slayer)
             .then(res => {
-                sessionStorage.setItem('slayer_name', res.name)
-                sessionStorage.setItem('slayer_id', res._id)
+                const slayerData = res
+                sessionStorage.setItem('slayer_name', slayerData.name)
+                sessionStorage.setItem('slayer_id', slayerData._id)
+                //sessionStorage.setItem('slayer_skills', JSON.stringify(slayerData.skills))
                 navigate('/slayer/dashboard')
             })
-            .catch(errors => setErrors(errors))
+            .catch(errors => { setErrors(errors)} )
     }
 
 

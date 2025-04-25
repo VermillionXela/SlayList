@@ -33,6 +33,7 @@ export const GuildRegisterView = () => {
 
     return (
         <div className={styles.pageBackground}>
+            <div className={styles.formContainer}>
             <h1 className={styles.heading}>New Guild Registration</h1>
             <form onSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.formInput}>
@@ -81,6 +82,7 @@ export const GuildRegisterView = () => {
 
                 <button type="submit" className={styles.submitButton}>Onwards!</button>
             </form>
+        </div>
         </div>
     )
 }

@@ -34,11 +34,11 @@ export const SlayerRegisterView = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        registerGuild(newGuild)
+        registerSlayer(newSlayer)
             .then(() => {
-                setNewGuild(DEFAULT_GUILD_DATA)
+                setNewSlayer(DEFAULT_SLAYER_DATA)
                 setErrors({})
-                navigate('/guild/dashboard')
+                navigate('/slayer/dashboard')
             })
             .catch(errors => setErrors(errors))
     }

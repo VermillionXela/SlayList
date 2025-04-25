@@ -1,5 +1,7 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import styles from '../css/Header.module.css'
+import { logoutGuild } from '../services/guild.service'
+import { logoutSlayer } from '../services/slayer.service'
 
 export const Header = () => {
     const location = useLocation()
@@ -17,10 +19,10 @@ export const Header = () => {
         try {
             if (loggedInSlayer) {
                 await logoutSlayer()
-                navigate('/slayer/login')
+                navigate('/')
             } else if (loggedInGuild) {
                 await logoutGuild()
-                navigate('/guild/login')
+                navigate('/')
             }
         } catch (error) { console.log(error) }
     }
