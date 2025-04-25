@@ -18,7 +18,7 @@ const HuntSchema = new Schema(
 
         monsterImage: {
             type: String,
-            required: [true, "We need to see the beast to conquer it!"]
+            required: false
         },
 
         monsterWeaknesses: {

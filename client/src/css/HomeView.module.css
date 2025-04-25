@@ -1,0 +1,59 @@
+.pageBackground {
+    background-color: #d2605d;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainContainer {
+    text-align: center;
+}
+
+.logo {
+    width: 500px;
+    margin-bottom: -10px;
+}
+
+.buttonGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 14px;
+    align-items: center;
+}
+
+.greenButton {
+    background-color: #9be38c;
+    border: 2px solid black;
+    padding: 8px 8px;
+    text-decoration: none;
+    width: 35%;
+    color: black;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.yellowButton {
+    background-color: #ffcf5c;
+    border: 2px solid black;
+    padding: 8px 8px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    border-radius: 8px;
+    width: 35%;
+}
+
+.loginLinks {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 15px;
+}
+
+.loginLinks a {
+    color: rgb(7, 77, 22);
+    text-decoration: underline;
+    font-size: 1rem;
+}

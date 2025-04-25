@@ -18,6 +18,13 @@ export const loginGuild = async (guildCredentials) => {
     } catch (error) { throw error.response.data.errors }
 }
 
+export const logoutGuild = async () => {
+    try {
+        await GUILD_API.post('/logout', {}, { withCredentials: true })
+        sessionStorage.clear()
+    } catch (error) {throw error.response.data.errors }
+}
+
 export const getGuildById = async (id) => {
     try {
         const res = await GUILD_API.get(`/${id}`)

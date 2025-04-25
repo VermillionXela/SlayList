@@ -50,7 +50,11 @@ export const loginSlayer = async (req, res) => {
     }
 }
 
-
+export const logoutSlayer = (req, res) => {
+    req.session.destroy()
+    res.clearCookie('connect.sid')
+    res.status(200).json(null)
+}
 
 
 export const getAllSlayers = async (req, res, next) => {

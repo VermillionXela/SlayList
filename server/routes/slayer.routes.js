@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { loginSlayer, registerSlayer, getAllSlayers, getSlayerById } from "../controllers/slayer.controller.js"
+import { loginSlayer, registerSlayer, getAllSlayers, getSlayerById, logoutSlayer } from "../controllers/slayer.controller.js"
 
 const slayerRouter = Router()
 
@@ -14,6 +14,9 @@ slayerRouter.route('/register')
     .post(registerSlayer)
 
 slayerRouter.route('/login')
-    .post(loginSlayer)    
+    .post(loginSlayer)
+
+slayerRouter.route('/logout')
+    .post(logoutSlayer)
 
 export default slayerRouter

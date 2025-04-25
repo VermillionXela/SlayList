@@ -1,5 +1,5 @@
 import { Router } from "express"
-import { loginGuild, registerGuild, getAllGuilds, getGuildById } from "../controllers/guild.controller.js"
+import { loginGuild, registerGuild, getAllGuilds, getGuildById,logoutGuild } from "../controllers/guild.controller.js"
 
 const guildRouter = Router()
 
@@ -14,5 +14,8 @@ guildRouter.route("/register")
 
 guildRouter.route('/login')
     .post(loginGuild)
+
+guildRouter.route('/logout')
+    .post(logoutGuild)    
 
 export default guildRouter 

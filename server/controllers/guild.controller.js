@@ -48,7 +48,11 @@ export const loginGuild = async (req, res) => {
     }
 }
 
-
+export const logoutGuild = (req, res) => {
+    req.session.destroy()
+    res.clearCookie('connect.sid')
+    res.status(200).json(null)
+}
 
 
 export const getAllGuilds = async (req, res, next) => {

@@ -1,0 +1,45 @@
+.pageBackground {
+    background-color: #d2605d;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form {
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.formGroup, .formInput {
+    margin-bottom: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.errorText {
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.button {
+    background-color: #3fc47a;
+    color: rgb(253, 253, 253);
+    padding: 10px;
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 8px;
+    margin-top: 8px;
+}

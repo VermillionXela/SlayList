@@ -31,17 +31,18 @@ export const SlayerRegisterView = () => {
         const { name, value } = e.target
         setNewSlayer(prev => ({ ...prev, [name]: value }))
     }
-    
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        registerSlayer(newSlayer)
+        registerGuild(newGuild)
             .then(() => {
-                setNewSlayer(DEFAULT_SLAYER_DATA)
+                setNewGuild(DEFAULT_GUILD_DATA)
                 setErrors({})
-                navigate('/slayer/dashboard')
+                navigate('/guild/dashboard')
             })
             .catch(errors => setErrors(errors))
     }
+
 
     const toggleSkill = (skillName) => {
         setNewSlayer(prev => {
@@ -57,97 +58,99 @@ export const SlayerRegisterView = () => {
 
     return (
         //TODO: all css. make icons responsive
-        <div className={styles.formContainer}>
-            <h1>New Slayer Profile</h1>
+        <div className={styles.pagebackground}>
+            <div className={styles.formContainer}>
+                <h1 className={styles.header}>New Slayer Profile</h1>
 
-            <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}>
 
-                <div className={styles.leftContainer}>
-                    <div className={styles.formInput}>
-                        <label>Name:
-                            <input
-                                type="text"
-                                name="name"
-                                value={newSlayer.name}
-                                onChange={updateSlayer}
-                            />
-                        </label>
-                        {errors.name && <p className={styles.errorText}>{errors.name.message}</p>}
+                    <div className={styles.leftContainer}>
+                        <div className={styles.formInput}>
+                            <label>Name:
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={newSlayer.name}
+                                    onChange={updateSlayer}
+                                />
+                            </label>
+                            {errors.name && <p className={styles.errorText}>{errors.name.message}</p>}
+                        </div>
+
+                        <div className={styles.formInput}>
+                            <label>Email:
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value={newSlayer.email}
+                                    onChange={updateSlayer}
+                                />
+                            </label>
+                            {errors.email && <p className={styles.errorText}>{errors.email.message}</p>}
+                        </div>
+
+                        <div className={styles.formInput}>
+                            <label >Password:
+                                <input
+                                    type="password"
+                                    name="password"
+                                    value={newSlayer.password}
+                                    onChange={updateSlayer}
+                                />
+                            </label>
+                            {errors.password && <p className={styles.errorText}>{errors.password.message}</p>}
+                        </div>
+
+                        <div className={styles.formInput}>
+                            <label>Confirm Password:
+                                <input
+                                    type="password"
+                                    name="confirmPassword"
+                                    value={newSlayer.confirmPassword}
+                                    onChange={updateSlayer}
+                                />
+                            </label>
+                            {errors.confirmPassword && <p className={styles.errorText}>{errors.confirmPassword.message}</p>}
+                        </div>
+
+                        <div className={styles.formInput}>
+                            <label>Short Bio:
+                                <textarea
+                                    name="bio"
+                                    value={newSlayer.bio}
+                                    onChange={updateSlayer}
+                                />
+                            </label>
+                            {errors.bio && <p className={styles.errorText}>{errors.bio.message}</p>}
+                        </div>
                     </div>
 
-                    <div className={styles.formInput}>
-                        <label>Email:
-                            <input
-                                type="email"
-                                name="email"
-                                value={newSlayer.email}
-                                onChange={updateSlayer}
-                            />
-                        </label>
-                        {errors.email && <p className={styles.errorText}>{errors.email.message}</p>}
-                    </div>
 
-                    <div className={styles.formInput}>
-                        <label >Password:
-                            <input
-                                type="password"
-                                name="password"
-                                value={newSlayer.password}
-                                onChange={updateSlayer}
-                            />
-                        </label>
-                        {errors.password && <p className={styles.errorText}>{errors.password.message}</p>}
-                    </div>
+                    <div className={styles.rightColumn}>
+                        <h2>Hunting Skills</h2>
+                        <div className={styles.skillContainer}>
 
-                    <div className={styles.formInput}>
-                        <label>Confirm Password:
-                            <input
-                                type="password"
-                                name="confirmPassword"
-                                value={newSlayer.confirmPassword}
-                                onChange={updateSlayer}
-                            />
-                        </label>
-                        {errors.confirmPassword && <p className={styles.errorText}>{errors.confirmPassword.message}</p>}
-                    </div>
-
-                    <div className={styles.formInput}>
-                        <label>Short Bio:
-                            <textarea
-                                name="bio"
-                                value={newSlayer.bio}
-                                onChange={updateSlayer}
-                            />
-                        </label>
-                        {errors.bio && <p className={styles.errorText}>{errors.bio.message}</p>}
-                    </div>
-                </div>
-
-
-                <div className={styles.rightColumn}>
-                    <h2>Hunting Skills</h2>
-                    <div className={styles.skillContainer}> 
-                    
-                        {SLAYER_SKILLS.map(({ name, icon }) => (
-                            <div
-                                key={name}
-                                onClick={() => toggleSkill(name)}
-                            >
-                                <div className={styles.icon}>
-                                    {icon}
+                            {SLAYER_SKILLS.map(({ name, icon }) => (
+                                <div
+                                    key={name}
+                                    onClick={() => toggleSkill(name)}
+                                >
+                                    <div className={styles.icon}>
+                                        {icon}
+                                    </div>
+                                    <div className={styles.skillName}>
+                                        {name}
+                                    </div>
                                 </div>
-                                <div className={styles.skillName}> 
-                                    {name}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                    
-                    {errors.skills && <p className={styles.errorText}>{errors.skills.message}</p>}
-                </div>
+                            ))}
+                        </div>
 
-                <button className={styles.greenButton}>Begin Your Hunting</button>
-            </form>
+                        {errors.skills && <p className={styles.errorText}>{errors.skills.message}</p>}
+                    </div>
+
+                    <button type='submit' className={styles.submitButton}>Begin Your Hunting</button>
+                </form>
+            </div>
         </div>
-)
+    )
 }

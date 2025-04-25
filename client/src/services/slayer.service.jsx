@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const SLAYER_API = axios.create({ 
-    baseURL: 'http://localhost:8000/v1/slayer' 
+const SLAYER_API = axios.create({
+    baseURL: 'http://localhost:8000/v1/slayer'
 })
 
 
@@ -19,6 +19,12 @@ export const loginSlayer = async (slayerCredentials) => {
     } catch (error) { throw error.response.data.errors }
 }
 
+export const logoutSlayer = async () => {
+    try {
+        await SLAYER_API.post('/logout', {}, { withCredentials: true })
+        sessionStorage.clear()
+    } catch (error) { throw error.response.data.errors }
+}
 
 export const getSlayerById = async (id) => {
     try {
