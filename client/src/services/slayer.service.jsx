@@ -16,8 +16,10 @@ export const loginSlayer = async (slayerCredentials) => {
     try {
         const res = await SLAYER_API.post('/login', slayerCredentials, { withCredentials: true })
         return res.data
-    } catch (error) { throw error.response.data.errors }
+    } catch (error) { throw error.response.data.error }
+
 }
+
 
 export const logoutSlayer = async () => {
     try {

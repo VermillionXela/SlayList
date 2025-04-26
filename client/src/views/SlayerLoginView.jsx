@@ -11,7 +11,7 @@ export const SlayerLoginView = () => {
     }
 
     const [slayer, setSlayer] = useState(DEFAULT_SLAYER_DATA)
-    const [errors, setErrors] = useState({})
+    const [error, setError] = useState('')
     const navigate = useNavigate()
 
     const handleChange = (e) => {
@@ -30,7 +30,9 @@ export const SlayerLoginView = () => {
                 //sessionStorage.setItem('slayer_skills', JSON.stringify(slayerData.skills))
                 navigate('/slayer/dashboard')
             })
-            .catch(errors => { setErrors(errors)} )
+            .catch(error =>
+                {console.log('this is a message!')
+                setError(error)})
     }
 
 
@@ -47,7 +49,6 @@ export const SlayerLoginView = () => {
                             value={slayer.email}
                             onChange={handleChange}
                         />
-                        {errors.email && <p className={styles.errorText}>{errors.email.message}</p>}
                     </div>
 
                     <div className={styles.formInput}>
@@ -58,8 +59,8 @@ export const SlayerLoginView = () => {
                             value={slayer.password}
                             onChange={handleChange}
                         />
-                        {errors.password && <p className={styles.errorText}>{errors.password.message}</p>}
                     </div>
+                        {error && <p className={styles.errorText}>{error}</p>}
 
                     <button type='submit' className={styles.button}>Enter</button>
                 </form>

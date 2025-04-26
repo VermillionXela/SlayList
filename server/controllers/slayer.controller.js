@@ -31,12 +31,13 @@ export const loginSlayer = async (req, res) => {
 
         const slayer = await Slayer.findOne({ email })
         if (!slayer) {
-            return res.status(400).json(null)
+            console.log('Testing')
+            return res.status(400).json({ error: "invalid credentials" })
         }
 
         const isMatch = await bcrypt.compare(password, slayer.password)
         if (!isMatch) {
-            return res.status(400).json(null)
+            return res.status(400).json({ error: "invalid credentials" })
         }
 
         req.session.slayer_id = slayer._id
@@ -46,7 +47,8 @@ export const loginSlayer = async (req, res) => {
 
         res.status(200).json(slayerData)
     } catch (error) {
-        res.status(400).json(null)
+        console.log(error)
+        res.status(400).json(error)
     }
 }
 

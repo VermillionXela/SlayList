@@ -14,8 +14,8 @@ export const registerGuild = async (newGuild) => {
 export const loginGuild = async (guildCredentials) => {
     try {
         const res = await GUILD_API.post('/login', guildCredentials, { withCredentials: true })
-        return res.data;
-    } catch (error) { throw error.response.data.errors }
+        return res.data
+    } catch (error) { throw error.response.data.error }
 }
 
 export const logoutGuild = async () => {

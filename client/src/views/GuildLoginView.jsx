@@ -11,7 +11,7 @@ export const GuildLoginView = () => {
     }
 
     const [guild, setGuild] = useState(DEFAULT_GUILD_DATA)
-    const [errors, setErrors] = useState({})
+    const [errors, setErrors] = useState('')
     const navigate = useNavigate()
 
     const handleChange = (e) => {
@@ -43,7 +43,7 @@ export const GuildLoginView = () => {
                             value={guild.email}
                             onChange={handleChange}
                         />
-                        {errors.email && <p className={styles.errorText}>{errors.email.message}</p>}
+
                     </div>
 
                     <div className={styles.formInput}>
@@ -54,7 +54,7 @@ export const GuildLoginView = () => {
                             value={guild.password}
                             onChange={handleChange}
                         />
-                        {errors.password && <p className={styles.errorText}>{errors.password.message}</p>}
+                        {errors && <p className={styles.errorText}>{errors}</p>}
                     </div>
 
                     <button type='submit' className={styles.button}>Enter</button>

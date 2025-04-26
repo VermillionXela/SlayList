@@ -34,55 +34,55 @@ export const GuildRegisterView = () => {
     return (
         <div className={styles.pageBackground}>
             <div className={styles.formContainer}>
-            <h1 className={styles.heading}>New Guild Registration</h1>
-            <form onSubmit={handleSubmit} className={styles.form}>
-                <div className={styles.formInput}>
-                    <label>Guild Name:</label>
-                    <input
-                        type="text"
-                        name="name"
-                        value={newGuild.name}
-                        onChange={updateGuild}
-                    />
-                    {errors.name && <p className={styles.errorText}>{errors.name.message}</p>}
-                </div>
+                <h1 className={styles.heading}>New Guild Registration</h1>
+                <form onSubmit={handleSubmit} className={styles.form}>
+                    <div className={styles.formInput}>
+                        <label>Guild Name:</label>
+                        <input
+                            type="text"
+                            name="name"
+                            value={newGuild.name}
+                            onChange={updateGuild}
+                        />
+                        {errors.name && <p className={styles.errorText}>{errors.name.message}</p>}
+                    </div>
 
-                <div className={styles.formInput}>
-                    <label>Email:</label>
-                    <input
-                        type='email'
-                        name="email"
-                        value={newGuild.email}
-                        onChange={updateGuild}
-                    />
-                    {errors.email && <p className={styles.errorText}>{errors.email.message}</p>}
-                </div>
+                    <div className={styles.formInput}>
+                        <label>Email:</label>
+                        <input
+                            type='email'
+                            name="email"
+                            value={newGuild.email}
+                            onChange={updateGuild}
+                        />
+                        {errors.email && <p className={styles.errorText}>{errors.email.message}</p>}
+                    </div>
 
-                <div className={styles.formInput}>
-                    <label>Password:</label>
-                    <input
-                        type="password"
-                        name="password"
-                        value={newGuild.password}
-                        onChange={updateGuild}
-                    />
-                    {errors.password && <p className={styles.errorText}>{errors.password.message}</p>}
-                </div>
+                    <div className={styles.formInput}>
+                        <label>Password:</label>
+                        <input
+                            type="password"
+                            name="password"
+                            value={newGuild.password}
+                            onChange={updateGuild}
+                        />
+                        {errors.password && <p className={styles.errorText}>{errors.password.message}</p>}
+                    </div>
 
-                <div className={styles.formInput}>
-                    <label>Confirm Password:</label>
-                    <input
-                        type="password"
-                        name="confirmPassword"
-                        value={newGuild.confirmPassword}
-                        onChange={updateGuild}
-                    />
-                    {errors.confirmPassword && <p className={styles.errorText}>{errors.confirmPassword.message}</p>}
-                </div>
+                    <div className={styles.formInput}>
+                        <label>Confirm Password:</label>
+                        <input
+                            type="password"
+                            name="confirmPassword"
+                            value={newGuild.confirmPassword}
+                            onChange={updateGuild}
+                        />
+                        {errors.confirmPassword && <p className={styles.errorText}>{errors.confirmPassword.message}</p>}
+                    </div>
 
-                <button type="submit" className={styles.submitButton}>Onwards!</button>
-            </form>
-        </div>
+                    <button type="submit" className={styles.submitButton}>Onwards!</button>
+                </form>
+            </div>
         </div>
     )
 }

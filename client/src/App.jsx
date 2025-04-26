@@ -6,7 +6,7 @@ import {SlayerLoginView} from './views/SlayerLoginView'
 import {GuildLoginView} from './views/GuildLoginView'
 //import {GuildDashboardView} from './views/GuildDashboardView'
 import {NewHuntView} from './views/NewHuntView'
-//import {EditHuntView} from './views/EditHuntView'
+import {EditHuntView} from './views/EditHuntView'
 import {HomeView} from './views/HomeView'
 import {SlayerDashboardView} from './views/SlayerDashboardView'
 //import {SlayerHuntsView} from './views/SlayerHuntsView'
@@ -23,11 +23,11 @@ function App() {
         <Route path="/guild/register" element={<GuildRegisterView />} />
         <Route path="/guild/login" element={<GuildLoginView />} />
       /* TODO: restrict access  */
+        <Route path="/guild/hunts/:id/edit" element={<EditHuntView />} /> 
         <Route path="/slayer/dashboard" element={<SlayerDashboardView />} />
         <Route path="/guild/hunts/new" element={<NewHuntView />} />
-        {/*<Route path="/slayer/hunts" element={<SlayerHuntsView />} />
-        {/*<Route path="/guild/dashboard" element={<GuildDashboardView />} />
-        {/*<Route path="/guild/hunts/:id/edit" element={<EditHuntView />} /> */}
+        
+        
       </Routes>
     </>
   )

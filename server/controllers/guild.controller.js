@@ -29,12 +29,12 @@ export const loginGuild = async (req, res) => {
 
         const guild = await Guild.findOne({ email })
         if (!guild) {
-            return res.status(400).json(null)
+            return res.status(400).json({ error: "invalid credentials" })
         }
 
         const isMatch = await bcrypt.compare(password, guild.password)
         if (!isMatch) {
-            return res.status(400).json(null)
+            return res.status(400).json({ error: "invalid credentials" })
         }
 
         req.session.guild_id = guild._id
@@ -44,7 +44,7 @@ export const loginGuild = async (req, res) => {
 
         res.status(200).json(guildData)
     } catch (error) {
-        res.status(400).json(null)
+        res.status(400).json(error)
     }
 }
 
