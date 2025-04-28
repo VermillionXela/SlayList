@@ -35,7 +35,7 @@ export const getAllHunts = async (req, res, next) => {
             path: 'guild',
             select: 'name'
         })
-        console.log(hunts) 
+        console.log(hunts)
 
         res.status(200).json(hunts)
     } catch (error) {
@@ -51,9 +51,9 @@ export const getHuntById = async (req, res, next) => {
             select: 'name'
         })
 
-    if (!hunt) {
-        return res.status(404).json({ error: 'No hunt found' })
-    }
+        if (!hunt) {
+            return res.status(404).json({ error: 'No hunt found' })
+        }
 
         res.status(200).json(hunt)
     } catch (error) {
@@ -74,9 +74,9 @@ export const updateHunt = async (req, res, next) => {
             select: 'name'
         })
 
-    if (!hunt) {
-        return res.status(404).json({ error: 'No hunt found to edit' })
-    }
+        if (!hunt) {
+            return res.status(404).json({ error: 'No hunt found to edit' })
+        }
 
         res.status(200).json(hunt)
     } catch (error) {
@@ -91,9 +91,9 @@ export const deleteHunt = async (req, res, next) => {
 
         if (!hunt) {
             return res.status(404).json({ error: "No hunt found to delete" })
-    }
+        }
 
-        res.status(200).json(hunt) 
+        res.status(200).json(hunt)
     } catch (error) {
         res.status(400).json(error)
     }
@@ -101,8 +101,8 @@ export const deleteHunt = async (req, res, next) => {
 
 export const acceptHunt = async (req, res, next) => {
     try {
-        const { id } = req.params 
-        const slayerId = req.session.slayer_id 
+        const { id } = req.params
+        const slayerId = req.session.slayer_id
 
         const hunt = await Hunt.findById(id)
         if (!hunt) {
@@ -134,16 +134,21 @@ export const completeHunt = async (req, res, next) => {
         const { id } = req.params
         const slayerId = req.session.slayer_id
 
+
         const hunt = await Hunt.findById(id)
         if (!hunt) {
             return res.status(404).json({ error: 'No hunt found' })
         }
 
+        if (hunt.isCompleted) {
+            return res.status(400).json({ error: 'Hunt already completed' })
+        }
+        
         hunt.huntStatus = 'Completed'
         hunt.isCompleted = true
         hunt.slayerCompleted = slayerId
 
-        await hunt.save() 
+        await hunt.save()
 
         const slayer = await Slayer.findById(slayerId)
         if (!slayer) {
@@ -151,14 +156,14 @@ export const completeHunt = async (req, res, next) => {
         }
 
         if (!slayer.completedHunts.includes(hunt._id)) {
-        slayer.completedHunts.push(hunt._id)
+            slayer.completedHunts.push(hunt._id)
         }
 
         slayer.goldEarned += hunt.reward
 
         await slayer.save()
 
-        res.status(200).json(hunt )
+        res.status(200).json(hunt)
     } catch (error) {
         res.status(400).json(error)
     }

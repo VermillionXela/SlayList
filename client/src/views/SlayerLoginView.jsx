@@ -27,12 +27,12 @@ export const SlayerLoginView = () => {
                 const slayerData = res
                 sessionStorage.setItem('slayer_name', slayerData.name)
                 sessionStorage.setItem('slayer_id', slayerData._id)
-                //sessionStorage.setItem('slayer_skills', JSON.stringify(slayerData.skills))
+                sessionStorage.setItem('slayer_skills', JSON.stringify(slayerData.skills))
+                sessionStorage.removeItem('guild_id')
+                sessionStorage.removeItem('guild_name')
                 navigate('/slayer/dashboard')
             })
-            .catch(error =>
-                {console.log('this is a message!')
-                setError(error)})
+            .catch(error => setError(error))
     }
 
 
@@ -60,7 +60,7 @@ export const SlayerLoginView = () => {
                             onChange={handleChange}
                         />
                     </div>
-                        {error && <p className={styles.errorText}>{error}</p>}
+                    {error && <p className={styles.errorText}>{error}</p>}
 
                     <button type='submit' className={styles.button}>Enter</button>
                 </form>

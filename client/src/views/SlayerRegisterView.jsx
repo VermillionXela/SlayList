@@ -38,7 +38,7 @@ export const SlayerRegisterView = () => {
             .then(() => {
                 setNewSlayer(DEFAULT_SLAYER_DATA)
                 setErrors({})
-                navigate('/slayer/dashboard')
+                navigate('/slayer/login')
             })
             .catch(errors => setErrors(errors))
     }
@@ -133,16 +133,15 @@ export const SlayerRegisterView = () => {
                             {SLAYER_SKILLS.map(({ name, icon }) => (
                                 <div
                                     key={name}
+                                    className={`${styles.skillOption} ${newSlayer.skills.includes(name) ? styles.selected : ''}`}
                                     onClick={() => toggleSkill(name)}
                                 >
-                                    <div className={styles.icon}>
-                                        {icon}
-                                    </div>
-                                    <div className={styles.skillName}>
-                                        {name}
-                                    </div>
+                                    <div className={styles.icon}>{icon}</div>
+                                    <div className={styles.skillName}>{name}</div>
                                 </div>
                             ))}
+
+
                         </div>
 
                         {errors.skills && <p className={styles.errorText}>{errors.skills.message}</p>}

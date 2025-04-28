@@ -25,6 +25,9 @@ export const GuildLoginView = () => {
             .then(res => {
                 sessionStorage.setItem('guild_name', res.name)
                 sessionStorage.setItem('guild_id', res._id)
+                sessionStorage.removeItem('slayer_id')
+                sessionStorage.removeItem('slayer_name')
+
                 navigate('/guild/dashboard')
             })
             .catch(errors => setErrors(errors))

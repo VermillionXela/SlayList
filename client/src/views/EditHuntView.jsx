@@ -3,7 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { updateHunt, getHuntById } from '../services/hunt.service'
 import styles from '../css/HuntForm.module.css'
 import { GiMagicSwirl, GiWolfHowl, GiPotionBall, GiSwordman, GiMantrap, GiFootsteps } from 'react-icons/gi'
-import { Header } from '../components/Header'
 
 export const EditHuntView = () => {
     const DEFAULT_HUNT_DATA = {
@@ -62,7 +61,6 @@ export const EditHuntView = () => {
 
     return (
         <>
-            < Header />
 
             <div className={styles.pageBackground}>
                 <div className={styles.formContainer}>
@@ -121,10 +119,6 @@ export const EditHuntView = () => {
                     </form>
                 </div>
             </div>
-
-
-
-
         </>
 
     )

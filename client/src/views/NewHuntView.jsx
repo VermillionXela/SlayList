@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { createHunt } from '../services/hunt.service'
 import styles from '../css/HuntForm.module.css'
 import { GiMagicSwirl, GiWolfHowl, GiPotionBall, GiSwordman, GiMantrap, GiFootsteps } from 'react-icons/gi'
-import { Header } from '../components/Header'
+
 
 export const NewHuntView = () => {
     const DEFAULT_HUNT_DATA = {
@@ -59,8 +59,6 @@ export const NewHuntView = () => {
 
     return (
         <>
-            <Header />
-
             <div className={styles.pageBackground}>
                 <div className={styles.formContainer}>
                     <h1 className={styles.header}>What beast troubles you?</h1>

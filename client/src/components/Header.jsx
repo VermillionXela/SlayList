@@ -10,6 +10,8 @@ export const Header = () => {
     const loggedInSlayer = sessionStorage.getItem('slayer_id')
     const loggedInGuild = sessionStorage.getItem('guild_id')
 
+    const loggedInName = guildName || slayerName
+
     const isSlayerDashboard = location.pathname === '/slayer/dashboard'
     const isSlayerHunts = location.pathname === '/slayer/hunts'
 
@@ -34,19 +36,13 @@ export const Header = () => {
                 alt="SlayList navbar logo"
                 className={styles.logo}
             />
+            <span className={styles.loggedInName}>Welcome, {loggedInName}</span>
 
-            {loggedInSlayer && (
-                <span className={styles.greeterText}>Welcome, {slayerName}</span>
-            )}
-
-            {loggedInGuild && (
-                <span className={styles.greeterText}>Welcome, {guildName}</span>
-            )}
             <div className={styles.navLinks}>
                 {loggedInGuild && (
                     <>
-                        <button onClick={() => navigate('/guild/dashboard')} className={styles.navButton}>
-                            Hunting Board
+                        <button onClick={() => navigate('/guild/hunts/new')} className={styles.navButton}>
+                            +New Hunt
                         </button>
                         <button onClick={handleLogout} className={styles.navButton}>
                             Farewell

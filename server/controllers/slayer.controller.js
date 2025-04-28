@@ -59,25 +59,23 @@ export const logoutSlayer = (req, res) => {
 }
 
 
-export const getAllSlayers = async (req, res, next) => {
-    try {
-        const slayers = await Slayer.find()
-        res.status(200).json(slayers)
-    } catch (error) {
-        res.status(400).json(error)
-    }
-}
-
-export const getSlayerById = async (req, res, next) => {
+export const getSlayerById = async (req, res) => {
     const { id } = req.params
     try {
         const slayer = await Slayer.findById(id)
+            .populate({
+                path: 'acceptedHunts',
+                populate: { path: 'guild' }
+            })
+            .populate({
+                path: 'completedHunts',
+                populate: { path: 'guild' }
+            })
         res.status(200).json(slayer)
     } catch (error) {
         res.status(400).json(error)
     }
 }
 
-//Need to have a method to get slayers accepted hunts and completed hunts to show on their
-//dashboard using the populate method
-//If time permits: editSlayer, if I give them more of a profile view
+
+

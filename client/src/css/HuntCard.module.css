@@ -150,3 +150,15 @@
     font-weight: bold;
     cursor: pointer;
 }
+
+.oddsHigh {
+    text-align: center;
+    color: darkgreen;
+    font-weight: bold;
+}
+
+.oddsLow {
+    text-align: center;
+    color: darkred;
+    font-weight: bold;
+}

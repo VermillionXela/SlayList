@@ -32,5 +32,7 @@ export const getSlayerById = async (id) => {
     try {
         const res = await SLAYER_API.get(`/${id}`)
         return res.data
-    } catch (error) { throw error.response.data.errors }
+    } catch (error) {
+        throw error.response?.data?.error || error.message || 'Unknown error'
+    }
 }

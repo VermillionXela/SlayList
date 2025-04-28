@@ -1,11 +1,8 @@
 import { Router } from 'express'
-import { loginSlayer, registerSlayer, getAllSlayers, getSlayerById, logoutSlayer } from "../controllers/slayer.controller.js"
+import { loginSlayer, registerSlayer, getSlayerById, logoutSlayer } from "../controllers/slayer.controller.js"
 
 const slayerRouter = Router()
 
-
-slayerRouter.route('/')
-    .get(getAllSlayers)
 
 slayerRouter.route('/:id')
     .get(getSlayerById)

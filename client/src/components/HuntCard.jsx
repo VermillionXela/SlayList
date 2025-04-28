@@ -5,7 +5,7 @@ import { GiMagicSwirl, GiWolfHowl, GiPotionBall, GiSwordman, GiMantrap, GiFootst
 import { useNavigate } from 'react-router-dom'
 
 
-export const HuntCard = ({ hunt, slayerSkills }) => {
+export const HuntCard = ({ hunt, slayerSkills, refreshHunts }) => {
     const SKILL_MAP = {
         'Magic': <GiMagicSwirl />,
         'Beast Taming': <GiWolfHowl />,
@@ -21,7 +21,10 @@ export const HuntCard = ({ hunt, slayerSkills }) => {
     const guildId = sessionStorage.getItem('guild_id')
     const navigate = useNavigate()
 
-    //TODO: calculate odds using slayerSkills vs monsterWeaknesses
+    const calculateOdds = (slayerSkills, monsterWeaknesses) => {
+        const matchCount = monsterWeaknesses.filter(skill => slayerSkills.includes(skill)).length
+        return Math.round((matchCount / 3) * 100)
+    }
 
     const handleAccept = async (huntId) => {
         try {
@@ -70,7 +73,18 @@ export const HuntCard = ({ hunt, slayerSkills }) => {
                         ))}
                     </div>
                 </div>
-                        {/* TODO: Your Odds: conditonal rendering with green text if odds are above 55% and red if below 55%*/}
+                {slayerSkills && (
+                    <p
+                        className={
+                            calculateOdds(slayerSkills, monsterWeaknesses) >= 55
+                                ? styles.oddsHigh
+                                : styles.oddsLow
+                        }
+                    >
+                        Your Odds: {calculateOdds(slayerSkills, monsterWeaknesses)}%
+                    </p>
+                )}
+
 
                 <p className={styles.reward}>Reward: <span className={styles.rewardGold}>{reward} gold tokens</span></p>
 
@@ -95,10 +109,12 @@ export const HuntCard = ({ hunt, slayerSkills }) => {
                     {slayerId && (
                         <button
                             type="submit"
-                            onClick={() => {
-                                handleAccept(hunt._id)
+                            onClick={async () => {
+                                await handleAccept(hunt._id)
+                                refreshHunts()
                                 navigate("/slayer/hunts")
                             }}
+
                             className={styles.acceptButton}
                         >
                             Accept Hunt

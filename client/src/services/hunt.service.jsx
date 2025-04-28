@@ -58,5 +58,7 @@ export const completeHunt = async (id) => {
     try {
         const res = await HUNT_API.post(`/${id}/complete`, {}, { withCredentials: true })
         return res.data
-    } catch (error) { throw error.response.data.errors }
+    } catch (error) {
+        console.log('heres the error:',error)
+    } { throw error.response.data.errors}
 }
