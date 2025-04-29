@@ -37,9 +37,13 @@ export const HuntCard = ({ hunt, slayerSkills, refreshHunts }) => {
         try {
             await deleteHunt(huntId)
             console.log('Hunt deleted')
-        } catch (error) { console.error('Error deleting hunt:', error) }
+            if (refreshHunts) {
+                refreshHunts()
+            }
+        } catch (error) {
+            console.error('Error deleting hunt:', error)
+        }
     }
-
     return (
         <div className={styles.huntCard}>
             <div className={styles.leftcolumn}>

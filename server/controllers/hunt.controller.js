@@ -93,7 +93,7 @@ export const deleteHunt = async (req, res, next) => {
             return res.status(404).json({ error: "No hunt found to delete" })
         }
 
-        res.status(200).json(hunt)
+        res.status(200).json({ message: 'Hunt deleted successfully', id })
     } catch (error) {
         res.status(400).json(error)
     }
@@ -159,6 +159,10 @@ export const completeHunt = async (req, res, next) => {
             slayer.completedHunts.push(hunt._id)
         }
 
+        slayer.acceptedHunts = slayer.acceptedHunts.filter(
+            acceptedHuntId => acceptedHuntId.toString() !== hunt._id.toString()
+        )
+        
         slayer.goldEarned += hunt.reward
 
         await slayer.save()

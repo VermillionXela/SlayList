@@ -19,7 +19,7 @@ export const HuntsTable = ({ type, hunts, refreshSlayer }) => {
             <div className={styles.huntsSection}>
                 <h1 className={styles.header}>Accepted Hunts</h1>
                 {hunts.length === 0 ? (
-                    <p className={styles.noHunts}>You haven't accepted any hunts yet.</p>
+                    <p className={styles.noHunts}>No hunts currently accepted.</p>
                 ) : (
                     <table className={styles.huntsTable}>
                         <thead>

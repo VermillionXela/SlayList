@@ -124,8 +124,9 @@ export const SlayerRegisterView = () => {
                         </div>
 
 
-                        <h2 className={styles.skillsHeader}>Hunting Skills</h2>
-                        <div className={styles.skillContainer}>
+                        <h2 className={styles.skillsHeader}>Your Hunting Skills</h2>
+                        <p className={styles.skillsDescription}> (You may select up to 4 skills) </p>
+                        <div className={styles.skillsContainer}>
 
                             {SLAYER_SKILLS.map(({ name, icon }) => (
                                 <div
