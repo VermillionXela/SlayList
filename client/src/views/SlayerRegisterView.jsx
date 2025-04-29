@@ -58,13 +58,12 @@ export const SlayerRegisterView = () => {
 
     return (
         //TODO: all css. make icons responsive
-        <div className={styles.pagebackground}>
+        <div className={styles.pageBackground}>
             <div className={styles.formContainer}>
                 <h1 className={styles.header}>New Slayer Profile</h1>
 
                 <form onSubmit={handleSubmit}>
 
-                    <div className={styles.leftContainer}>
                         <div className={styles.formInput}>
                             <label>Name:
                                 <input
@@ -123,11 +122,9 @@ export const SlayerRegisterView = () => {
                             </label>
                             {errors.bio && <p className={styles.errorText}>{errors.bio.message}</p>}
                         </div>
-                    </div>
 
 
-                    <div className={styles.rightColumn}>
-                        <h2>Hunting Skills</h2>
+                        <h2 className={styles.skillsHeader}>Hunting Skills</h2>
                         <div className={styles.skillContainer}>
 
                             {SLAYER_SKILLS.map(({ name, icon }) => (
@@ -145,7 +142,7 @@ export const SlayerRegisterView = () => {
                         </div>
 
                         {errors.skills && <p className={styles.errorText}>{errors.skills.message}</p>}
-                    </div>
+
 
                     <button type='submit' className={styles.submitButton}>Begin Your Hunting</button>
                 </form>

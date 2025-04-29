@@ -7,6 +7,7 @@
 }
 
 .heading {
+    font-family: "MedievalSharp", cursive;
     text-align: center;
     margin-bottom: 20px;
     color: black;
@@ -25,6 +26,7 @@
 }
 
 .formInput {
+    font-family: "Metamorphous", serif;
     margin-bottom: 15px;
 }
 
@@ -42,8 +44,9 @@ input {
 }
 
 .submitButton {
+    font-family: "Metamorphous", serif;
     background-color: #3fc47a;
-    color: rgb(253, 253, 253);
+    color: rgb(0, 0, 0);
     padding: 10px;
     width: 100%;
     border: 2px solid black;

@@ -96,7 +96,7 @@ export const NewHuntView = () => {
                             {errors.reward && <p className={styles.errorText}>{errors.reward.message}</p>}
                         </div>
 
-                        <p>Skills Required (pick 3):</p>
+                        <p className={styles.skillsHeader}>Skills Required (pick 3):</p>
                         <div className={styles.skillContainer}>
                             {HUNT_SKILLS.map(({ name, icon }) => (
                                 <div

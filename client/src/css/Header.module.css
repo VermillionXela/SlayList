@@ -1,9 +1,9 @@
 .headerBar {
     width: 100%;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
-    justify-content: space-between;
-    background-color: #d2605d;
+    background-color: #d96f63;
     color: #000000;
     padding: 4px 10px;
     border-bottom: 2px solid black;
@@ -13,8 +13,12 @@
     height: 70px;
 }
 
+.navLinks {
+    text-align: right;
+}
 
 .navButton {
+    font-family: "Metamorphous", serif;
     background: none;
     border: none;
     color: rgb(1, 37, 7);
@@ -24,6 +28,7 @@
 }
 
 .loggedInName {
+    font-family: "Metamorphous", serif;
     flex-grow: 1;
     text-align: center;
     font-weight: bold;

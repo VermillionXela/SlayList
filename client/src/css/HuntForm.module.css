@@ -1,5 +1,5 @@
 .pageBackground {
-    background: #eccd88;
+    background-color: #dacc8e;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -8,8 +8,10 @@
 }
 
 .header {
-    color: green;
+    font-family: "MedievalSharp", cursive;
+    color: rgb(31, 61, 31);
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .formContainer {
@@ -21,6 +23,7 @@
 }
 
 .formInput {
+    font-family: "Metamorphous", serif;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -33,6 +36,11 @@ textarea {
     border-radius: 5px;
     border: 1px solid black;
 }
+.skillsHeader {
+    font-family: "Metamorphous", serif;
+    margin-top: 20px;
+    font-size: 20px;
+}
 
 .skillContainer {
     background-color: #8cc499;
@@ -43,10 +51,11 @@ textarea {
     align-items: center;
     padding: 20px;
     border-radius: 10px;
-    border: 1px solid #000;
+    border: 2px solid #000;
     margin-top: 20px;
     width: 100%;
 }
+
 
 .skillOption {
     width: 100px;
@@ -77,10 +86,11 @@ textarea {
 }
 
 .submitButton {
-    background: #4CAF50;
-    color: white;
+    font-family: "MedievalSharp", cursive;
+    background: #d96f63;
+    color: rgb(0, 0, 0);
     padding: 10px;
-    border: 2px solid rgb(46, 46, 46);
+    border: 1px solid rgb(46, 46, 46);
     border-radius: 8px;
     display: block;
     margin: 20px auto 0;

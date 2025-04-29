@@ -30,8 +30,10 @@ export const SlayerHuntsView = () => {
         <div className={styles.pageBackground}>
             <div className={styles.totalGold}>
                 <span>Total Gold Earned:</span>
+                <div className={styles.iconContainer}>
                 <img src={goldIcon} alt="Gold" className={styles.goldIcon} />
-                <span>{slayer.goldEarned}</span>
+                <span className={styles.goldEarnedText}>{slayer.goldEarned}</span>
+                </div>
             </div>
 
             <HuntsTable

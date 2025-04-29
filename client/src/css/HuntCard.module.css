@@ -46,21 +46,22 @@
 }
 
 .postedBy {
+    font-family: "MedievalSharp", cursive;
     color: rgb(163, 26, 26);
     font-weight: bold;
 }
 
 .monsterName {
+    font-family: "MedievalSharp", cursive;
     font-size: 24px;
     text-align: center;
     font-weight: bold;
-    margin: 20px;
+    margin-top: 40px;
 }
 
 .description {
-    font-style: italic;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 60px;
 }
 
 .skillContainer {
@@ -69,6 +70,7 @@
 }
 
 .skillHeader {
+    font-family: "MedievalSharp", cursive;
     font-weight: bold;
     margin-bottom: 6px;
 }
@@ -104,6 +106,7 @@
 }
 
 .reward {
+    font-family: "MedievalSharp", cursive;
     text-align: center;
     font-weight: bold;
 }
@@ -115,23 +118,25 @@
 }
 
 .buttonRow {
-    margin-top: 12px;
+    margin-top: 14px;
     display: flex;
     gap: 12px;
     justify-content: center;
 }
 
 .acceptButton {
+    font-family: "MedievalSharp", cursive;
     background-color: #4caf50;
-    color: white;
+    color: rgb(0, 0, 0);
     padding: 6px 12px;
-    border: none;
+    border: 1px solid black;
     border-radius: 4px;
     font-weight: bold;
     cursor: pointer;
 }
 
 .editButton {
+    font-family: "MedievalSharp", cursive;
     background-color: #f1d76d;
     color: rgb(0, 0, 0);
     padding: 6px 12px;
@@ -142,6 +147,7 @@
 }
 
 .deleteButton {
+    font-family: "MedievalSharp", cursive;
     background-color: rgb(184, 77, 59);
     color: rgb(0, 0, 0);
     padding: 6px 12px;
@@ -152,13 +158,15 @@
 }
 
 .oddsHigh {
+    font-family: "MedievalSharp", cursive;
     text-align: center;
-    color: darkgreen;
+    color: rgb(2, 150, 2);
     font-weight: bold;
 }
 
 .oddsLow {
+    font-family: "MedievalSharp", cursive;
     text-align: center;
-    color: darkred;
+    color: rgb(182, 3, 3);
     font-weight: bold;
 }

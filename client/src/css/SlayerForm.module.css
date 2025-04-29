@@ -1,15 +1,28 @@
+.pageBackground {
+    min-height: 100vh;
+    background-color: #dacc8e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.header{
+    font-family: "MedievalSharp", cursive;
+    text-align: center;
+}
 .formContainer {
     width: 100%;
     max-width: 500px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
 }
 
 .formInput {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    padding: 5px;
+    font-family: "Metamorphous", serif;
 }
 
 input,
@@ -17,9 +30,14 @@ textarea {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 2px solid black;
 }
 
+.skillsHeader{
+    font-family: "MedievalSharp", cursive;
+    text-align: center;
+    margin-top: 10px;
+}
 .skillContainer {
     background-color: #8cc499;
     display: grid;
@@ -29,7 +47,7 @@ textarea {
     align-items: center;
     padding: 20px;
     border-radius: 10px;
-    border: 1px solid #000;
+    border: 2px solid #000;
     margin-top: 20px;
     width: 100%;
 }
@@ -63,10 +81,11 @@ textarea {
 }
 
 .submitButton {
-    background: #4CAF50;
-    color: white;
+    font-family: "MedievalSharp", cursive;
+    background: #d96f63;
+    color: rgb(0, 0, 0);
     padding: 10px;
-    border: 2px solid rgb(46, 46, 46);
+    border: 1px solid rgb(46, 46, 46);
     border-radius: 8px;
     display: block;
     margin: 20px auto 0;
@@ -77,5 +96,4 @@ textarea {
     margin-top: 10px;
     color: rgb(0, 0, 0);
     font-size: 1rem;
-    margin-top: -10px;
 }
